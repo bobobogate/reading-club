@@ -34,3 +34,11 @@
 ## 自訂網域（選用）
 
 已有自己的網域時：Settings → Pages → Custom domain 填入網域，並依 GitHub 指示在網域商設定 DNS。沒有網域就直接用 `github.io` 網址，完全免費。
+
+## 讓 Google 搜得到（SEO）
+
+- `index.html` 的 `<head>` 已加上標題、描述、canonical 網址、社群分享預覽（Open Graph）。
+- `robots.txt`、`sitemap.xml` 放在根目錄，部署後網址為 `/robots.txt`、`/sitemap.xml`。
+- `og-image.png` 是貼到 LINE／Facebook 時顯示的預覽圖（1200×630）。
+- Google Search Console 驗證碼已放在 `index.html` 的 `google-site-verification`（請勿刪除，否則驗證會失效）。
+- 之後若換網址（自訂網域），要一起改：`index.html` 的 canonical 與 og 網址、`robots.txt`、`sitemap.xml`。

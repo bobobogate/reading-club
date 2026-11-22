@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers 設定：把這個資料夾當成靜態網站發布
+  "name": "reading-club",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "."
+  },
+  // 讓 PR 也能產生預覽網址（Cloudflare 預覽建置需要這個區塊）
+  "previews": {}
+}
