@@ -1,0 +1,605 @@
+{
+  "meta": {
+    "title": "Calendly.com — Style Reference",
+    "tagline": "Navy ink on cool marble.",
+    "theme": "light",
+    "source_file": "心理學網站.md",
+    "notes": "Source measurements are normalized; roles and recommendations are interpreted. Font summary lists are independent, not paired by position. HTML examples are reconstructions, not source components.",
+    "summary": "Calendly reads as a quiet, confident scheduling workspace: a near-white canvas with generous breathing room, crisp white product cards floating on cool stone-gray, and all typography rendered in deep navy ink rather than pure black. The defining move is the navy (#0b3558) used everywhere text appears — headings, buttons, icons, links — which softens the entire interface into something warmer and more editorial than a typical SaaS landing page. A single vivid blue (#006bff) carries every primary action, while decorative pink and cyan blobs bleed from behind product mockups to add warmth without clutter. Components stay restrained: thin 1px hairline borders, subtle blue-tinted shadows, generous 24px card radii, and 8px button corners that feel intentional rather than pill-soft."
+  },
+  "colors": {
+    "ink-navy": {
+      "name": "Ink Navy",
+      "value": "#0b3558",
+      "token": "--color-ink-navy",
+      "role": "Primary text, headings, icons, dark CTA backgrounds, nav links"
+    },
+    "signal-blue": {
+      "name": "Signal Blue",
+      "value": "#006bff",
+      "token": "--color-signal-blue",
+      "role": "Primary CTA fill, active nav, link accents, selected states"
+    },
+    "slate-gray": {
+      "name": "Slate Gray",
+      "value": "#476788",
+      "token": "--color-slate-gray",
+      "role": "Secondary body copy, helper text, muted labels"
+    },
+    "mist-gray": {
+      "name": "Mist Gray",
+      "value": "#a6bbd1",
+      "token": "--color-mist-gray",
+      "role": "Disabled text, inactive feature labels, light icon strokes"
+    },
+    "cloud": {
+      "name": "Cloud",
+      "value": "#f8f9fb",
+      "token": "--color-cloud",
+      "role": "Page canvas, footer background, secondary surface"
+    },
+    "paper": {
+      "name": "Paper",
+      "value": "#ffffff",
+      "token": "--color-paper",
+      "role": "Card surfaces, elevated panels, button text on dark fills"
+    },
+    "pebble": {
+      "name": "Pebble",
+      "value": "#f0f3f8",
+      "token": "--color-pebble",
+      "role": "Badge backgrounds, input fills, subtle dividers, hover washes"
+    },
+    "hairline": {
+      "name": "Hairline",
+      "value": "#d4e0ed",
+      "token": "--color-hairline",
+      "role": "Card and input borders, dividers, link underline defaults"
+    },
+    "carbon": {
+      "name": "Carbon",
+      "value": "#0a0a0a",
+      "token": "--color-carbon",
+      "role": "Pure-black text fallback, logo glyph, icon fill"
+    },
+    "coral-magenta": {
+      "name": "Coral Magenta",
+      "value": "#e55cff",
+      "token": "--color-coral-magenta",
+      "role": "Decorative accent blob behind product cards — adds warmth without UI function"
+    },
+    "sky-cyan": {
+      "name": "Sky Cyan",
+      "value": "#0099ff",
+      "token": "--color-sky-cyan",
+      "role": "Decorative accent blob behind product cards — pairs with magenta for gradient washes"
+    },
+    "deep-cobalt": {
+      "name": "Deep Cobalt",
+      "value": "#004eba",
+      "token": "--color-deep-cobalt",
+      "role": "Badge text on Pebble fills, info labels"
+    },
+    "badge-tint": {
+      "name": "Badge Tint",
+      "value": "#e6f0ff",
+      "token": null,
+      "role": "Pill badge background (Pebble-tinted); appears in the Pill Badge component, not in the color table"
+    }
+  },
+  "typography": {
+    "families": {
+      "gilroy": {
+        "family": "Gilroy",
+        "token": "--font-gilroy",
+        "substitute": "Manrope",
+        "alternate_substitute": "Inter",
+        "stack": "'Gilroy', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "sizes": [
+          12,
+          14,
+          16,
+          18,
+          20,
+          24,
+          28,
+          38,
+          50,
+          68,
+          80
+        ],
+        "line_height": "1.0–1.71 by step",
+        "letter_spacing": "normal",
+        "role": "All interface text. Gilroy is a geometric humanist sans with wide apertures and even stroke contrast; its bold weights (700) carry the display headlines, while 500–600 handles buttons and subheads. Substitute with Manrope or Inter."
+      }
+    },
+    "roles": [
+      {
+        "weights": [
+          400
+        ],
+        "sizes": [
+          16
+        ],
+        "line_height": "1.0",
+        "role": "Body text and universal UI labels — weight 400 keeps long copy readable without feeling heavy"
+      },
+      {
+        "weights": [
+          500
+        ],
+        "sizes": [
+          14,
+          20
+        ],
+        "line_height": "1.4",
+        "role": "Secondary headings and emphasized body — the 14/500 is the workhorse for card titles and inline labels"
+      },
+      {
+        "weights": [
+          600
+        ],
+        "sizes": [
+          18,
+          24,
+          28
+        ],
+        "line_height": "1.4–1.6",
+        "role": "Button labels and subheadings — 18/600 is the canonical button weight, 24–28/600 for section subheads"
+      },
+      {
+        "weights": [
+          700
+        ],
+        "sizes": [
+          38,
+          50,
+          68,
+          80
+        ],
+        "line_height": "1.2–1.21",
+        "role": "Display and hero headlines — the 80px and 68px sizes are unusually large for a SaaS hero, giving the page editorial weight"
+      }
+    ],
+    "weights": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "scale": {
+      "caption": {
+        "size": "12px",
+        "line_height": 1.5,
+        "letter_spacing": "0px",
+        "token": "--text-caption"
+      },
+      "body-sm": {
+        "size": "14px",
+        "line_height": 1.4,
+        "letter_spacing": "0px",
+        "token": "--text-body-sm"
+      },
+      "body": {
+        "size": "16px",
+        "line_height": 1,
+        "letter_spacing": "0px",
+        "token": "--text-body"
+      },
+      "button": {
+        "size": "18px",
+        "line_height": 1.6,
+        "letter_spacing": "0px",
+        "token": "--text-button"
+      },
+      "body-lg": {
+        "size": "20px",
+        "line_height": 1.4,
+        "letter_spacing": "0px",
+        "token": "--text-body-lg"
+      },
+      "subheading": {
+        "size": "28px",
+        "line_height": 1.4,
+        "letter_spacing": "0px",
+        "token": "--text-subheading"
+      },
+      "heading-sm": {
+        "size": "38px",
+        "line_height": 1.21,
+        "letter_spacing": "0px",
+        "token": "--text-heading-sm"
+      },
+      "heading": {
+        "size": "50px",
+        "line_height": 1.2,
+        "letter_spacing": "0px",
+        "token": "--text-heading"
+      },
+      "heading-lg": {
+        "size": "68px",
+        "line_height": 1.2,
+        "letter_spacing": "0px",
+        "token": "--text-heading-lg"
+      },
+      "display": {
+        "size": "80px",
+        "line_height": 1.2,
+        "letter_spacing": "0px",
+        "token": "--text-display"
+      }
+    }
+  },
+  "spacing": {
+    "base_unit": "8px",
+    "density": "comfortable",
+    "scale": {
+      "8": {
+        "value": "8px",
+        "token": "--spacing-8"
+      },
+      "16": {
+        "value": "16px",
+        "token": "--spacing-16"
+      },
+      "24": {
+        "value": "24px",
+        "token": "--spacing-24"
+      },
+      "32": {
+        "value": "32px",
+        "token": "--spacing-32"
+      },
+      "40": {
+        "value": "40px",
+        "token": "--spacing-40"
+      },
+      "48": {
+        "value": "48px",
+        "token": "--spacing-48"
+      },
+      "56": {
+        "value": "56px",
+        "token": "--spacing-56"
+      },
+      "64": {
+        "value": "64px",
+        "token": "--spacing-64"
+      },
+      "72": {
+        "value": "72px",
+        "token": "--spacing-72"
+      },
+      "96": {
+        "value": "96px",
+        "token": "--spacing-96"
+      }
+    }
+  },
+  "radius": {
+    "named": {
+      "cards": "24px",
+      "small": "4px",
+      "badges": "9999px",
+      "inputs": "8px",
+      "buttons": "8px",
+      "productCards": "16px"
+    },
+    "scale": {
+      "md": "4px",
+      "lg": "8px",
+      "xl": "12px",
+      "2xl": "16px",
+      "3xl": "24px",
+      "full": "50px",
+      "full-2": "9999px"
+    }
+  },
+  "shadows": {
+    "sm": {
+      "value": "rgba(71, 103, 136, 0.04) 0px 4px 5px 0px, rgba(71, 103, 136, 0.03) 0px 4px 10px 0px, rgba(71, 103, 136, 0.05) 0px 10px 20px 0px",
+      "token": "--shadow-sm"
+    },
+    "sm-2": {
+      "value": "rgba(71, 103, 136, 0.04) 0px 4px 5px 0px, rgba(71, 103, 136, 0.03) 0px 8px 15px 0px, rgba(71, 103, 136, 0.08) 0px 30px 50px 0px",
+      "token": "--shadow-sm-2"
+    },
+    "sm-3": {
+      "value": "rgba(71, 103, 136, 0.04) 0px 4px 5px 0px, rgba(71, 103, 136, 0.03) 0px 8px 15px 0px, rgba(71, 103, 136, 0.06) 0px 15px 30px 0px",
+      "token": "--shadow-sm-3"
+    }
+  },
+  "elevation": {
+    "elevated-product-card": "rgba(71, 103, 136, 0.04) 0px 4px 5px 0px, rgba(71, 103, 136, 0.03) 0px 8px 15px 0px, rgba(71, 103, 136, 0.08) 0px 30px 50px 0px",
+    "link-card-with-icon": "rgba(71, 103, 136, 0.04) 0px 4px 5px 0px, rgba(71, 103, 136, 0.03) 0px 4px 10px 0px, rgba(71, 103, 136, 0.05) 0px 10px 20px 0px",
+    "button": "rgba(71, 103, 136, 0.04) 0px 4px 5px 0px, rgba(71, 103, 136, 0.03) 0px 8px 15px 0px, rgba(71, 103, 136, 0.06) 0px 15px 30px 0px"
+  },
+  "surfaces": [
+    {
+      "level": 0,
+      "name": "Canvas",
+      "value": "#f8f9fb",
+      "token": "--surface-canvas",
+      "purpose": "Page background, footer surface"
+    },
+    {
+      "level": 1,
+      "name": "Card",
+      "value": "#ffffff",
+      "token": "--surface-card",
+      "purpose": "Elevated product cards, booking widget, feature panels"
+    },
+    {
+      "level": 2,
+      "name": "Input Fill",
+      "value": "#f0f3f8",
+      "token": "--surface-input-fill",
+      "purpose": "Form inputs, badge backgrounds, subtle hover washes"
+    },
+    {
+      "level": 3,
+      "name": "Dark Surface",
+      "value": "#0b3558",
+      "token": "--surface-dark-surface",
+      "purpose": "Dark CTA buttons, inverse sections"
+    },
+    {
+      "level": 4,
+      "name": "Accent Surface",
+      "value": "#006bff",
+      "token": "--surface-accent-surface",
+      "purpose": "Primary action fills, selected/active states"
+    }
+  ],
+  "layout": {
+    "page_max_width": "1200px",
+    "section_gap": "48-64px",
+    "card_padding": "24px",
+    "element_gap": "8-16px",
+    "nav_height": "64px",
+    "nav": "Sticky top bar with logo left, centered menu, and CTA cluster right",
+    "description": "Max-width 1200px centered, generous outer margins on desktop. Hero is a two-column split: left column holds the 80px headline + body copy + stacked sign-in buttons, right column holds the booking widget card backed by decorative blob shapes. Below the hero sits the trust logo strip as a single full-width band. Subsequent sections alternate between centered header blocks (H2 + subtext + optional CTA) followed by two-column feature blocks (text-left/product-right or product-left/text-right) with decorative accent blobs behind every product visual. Card grids are rare — the layout prefers side-by-side paired sections over multi-column grids. Section gaps are 48–64px. Navigation is a 64px sticky top bar with logo left, centered menu, and CTA cluster right."
+  },
+  "imagery": {
+    "photography": false,
+    "icons": {
+      "style": "line",
+      "stroke": "1.5–2px",
+      "colors": [
+        "#0b3558",
+        "#006bff"
+      ]
+    },
+    "decorative_blobs": {
+      "colors": [
+        "#e55cff",
+        "#0099ff"
+      ],
+      "offset": "20–40px",
+      "treatment": "soft blob, slightly offset and blurred, behind product cards"
+    },
+    "description": "Product screenshots are the primary visual — clean UI mockups of the booking calendar rendered on pure white cards with generous rounded corners. Decorative treatment: each product card is backed by a soft blob shape in Coral Magenta (#e55cff) or Sky Cyan (#0099ff), slightly offset and blurred, creating an editorial collage effect rather than a flat screenshot. No photography, no lifestyle imagery — all visuals are product UI, abstract accent shapes, or monochrome partner logos in the trust strip. Icons are line-style with 1.5–2px stroke weight, mono-tone in Ink Navy or Signal Blue."
+  },
+  "components": {
+    "primary-cta-button": {
+      "role": "Filled button for the main action on a screen",
+      "background": "#006bff",
+      "color": "#ffffff",
+      "font_size": "18px",
+      "font_weight": 600,
+      "border_radius": "8px",
+      "padding": {
+        "compact": "6px 16px",
+        "comfortable": "10px 16px"
+      },
+      "border": "none",
+      "examples": [
+        "Sign up for free",
+        "Get started",
+        "Sign up with Google"
+      ]
+    },
+    "dark-cta-button": {
+      "role": "Secondary filled action, often paired with primary for contrast",
+      "background": "#0b3558",
+      "color": "#ffffff",
+      "font_size": "18px",
+      "font_weight": 600,
+      "border_radius": "8px",
+      "examples": [
+        "Sign up with Microsoft",
+        "Get started (header)"
+      ]
+    },
+    "ghost-text-link": {
+      "role": "In-flow text link with no background",
+      "color": "#0b3558",
+      "font_size": "14–18px",
+      "font_weight": "500–600",
+      "background": "none",
+      "border": "none",
+      "padding": "0",
+      "hover": "underline optional",
+      "examples": [
+        "View all integrations",
+        "Learn more"
+      ]
+    },
+    "outlined-white-button": {
+      "role": "Ghost button on dark or image backgrounds",
+      "color": "#ffffff",
+      "border": "1px solid #ffffff",
+      "border_radius": "4px",
+      "background": "none",
+      "usage": "Over hero imagery or dark sections"
+    },
+    "social-sign-in-button": {
+      "role": "OAuth entry point",
+      "layout": "Full-width pill with provider logo left, text right",
+      "padding": "12px 16px",
+      "border_radius": "8px",
+      "variants": {
+        "google": {
+          "background": "#ffffff",
+          "color": "#0b3558",
+          "border": "1px solid #d4e0ed"
+        },
+        "microsoft": {
+          "background": "#0b3558",
+          "color": "#ffffff",
+          "border": "none"
+        }
+      }
+    },
+    "elevated-product-card": {
+      "role": "Showcases a product mockup or UI screenshot",
+      "background": "#ffffff",
+      "border_radius": "16px",
+      "padding": "0px",
+      "box_shadow": "rgba(71, 103, 136, 0.04) 0px 4px 5px 0px, rgba(71, 103, 136, 0.03) 0px 8px 15px 0px, rgba(71, 103, 136, 0.08) 0px 30px 50px 0px",
+      "decoration": "Often sits in front of a Coral Magenta or Sky Cyan decorative blob"
+    },
+    "feature-accordion-item": {
+      "role": "Expandable or highlighted feature row",
+      "active": {
+        "heading_color": "#0b3558",
+        "font_size": "18–20px",
+        "font_weight": 600,
+        "icon_color": "#006bff"
+      },
+      "inactive": {
+        "heading_color": "#a6bbd1",
+        "font_size": "16px",
+        "font_weight": 400
+      },
+      "layout": "Left-aligned icon, right-aligned chevron",
+      "divider": "1px solid #d4e0ed (below)"
+    },
+    "pill-badge": {
+      "role": "Inline label for promotions, status, or tags",
+      "background": "#e6f0ff",
+      "color": "#004eba",
+      "font_size": "12px",
+      "font_weight": 500,
+      "border_radius": "50px",
+      "padding": "4px 8px",
+      "examples": [
+        "Save 16%",
+        "We're hiring!"
+      ]
+    },
+    "trust-logo-strip": {
+      "role": "Social proof band below hero",
+      "layout": "Single row, evenly spaced, centered; no card, no border",
+      "logo_color": "#a6bbd1"
+    },
+    "booking-widget-card": {
+      "role": "Embedded preview of the scheduling UI",
+      "background": "#ffffff",
+      "border_radius": "16px",
+      "padding": "0px",
+      "layout": "Three columns: organizer info (avatar + name), date grid (selected date #006bff), time slots (pill buttons, active #006bff)"
+    },
+    "section-header-block": {
+      "role": "Centered intro for content sections",
+      "heading": {
+        "font_size": "50–68px",
+        "font_weight": 700,
+        "color": "#0b3558",
+        "align": "center"
+      },
+      "subtext": {
+        "font_size": "16px",
+        "font_weight": 400,
+        "color": "#476788",
+        "align": "center",
+        "max_width": "640px"
+      },
+      "optional": "CTA button below"
+    },
+    "footer": {
+      "role": "Site-wide footer with link columns",
+      "background": "#f8f9fb",
+      "padding": "0 40px",
+      "links": {
+        "color": "#0b3558",
+        "font_size": "14px",
+        "font_weight": 500
+      },
+      "column_headings": {
+        "color": "#476788",
+        "font_size": "12px",
+        "font_weight": 600,
+        "text_transform": "uppercase"
+      }
+    }
+  },
+  "dos": [
+    "Use Ink Navy #0b3558 for all text — never pure #000000, which breaks the system's warmth",
+    "Use Signal Blue #006bff exclusively for filled primary CTAs; reserve Ink Navy for secondary dark buttons",
+    "Set all card border-radius to 16px for product cards and 24px for feature panels",
+    "Apply the three-layer blue-tinted shadow stack to any elevated surface above the canvas",
+    "Use Gilroy weight 700 at 50–80px for hero and section headlines — undersized headings lose the page's editorial confidence",
+    "Place every product visual in front of a Coral Magenta or Sky Cyan decorative blob offset by 20–40px",
+    "Set buttons at 8px border-radius — not 4px (too sharp) and not pill (too soft) for this system"
+  ],
+  "donts": [
+    "Don't use #000000 as a text color — always reach for Ink Navy #0b3558 or Slate Gray #476788",
+    "Don't apply shadows with neutral black (rgba(0,0,0,...)) — all elevation must use the blue-tinted shadow base",
+    "Don't use the decorative magenta/cyan blobs as fills for UI elements — they are atmosphere only, not functional color",
+    "Don't create buttons with border-radius above 12px or below 4px — 8px is the system's sharp-but-soft sweet spot",
+    "Don't set heading sizes below 38px for H2 or below 24px for H3 — the type scale skips small headings on purpose",
+    "Don't use the badge color #004eba for CTAs — it reads as informational, not actionable",
+    "Don't add gradients to backgrounds — the system is flat surfaces with shadow-based elevation only",
+    "Don't pair the Signal Blue and Ink Navy CTAs on the same surface without enough spacing — they compete at close range"
+  ],
+  "agent_prompt_guide": {
+    "quick_colors": {
+      "text_primary": "#0b3558",
+      "text_secondary": "#476788",
+      "background_canvas": "#f8f9fb",
+      "surface_card": "#ffffff",
+      "border_hairline": "#d4e0ed",
+      "accent_decorative": [
+        "#e55cff",
+        "#0099ff"
+      ],
+      "primary_action": "#006bff"
+    },
+    "example_prompts": [
+      "Create a Primary Action Button: #006bff background, #ffffff text, 9999px radius, compact pill padding. Use this filled treatment for the main CTA.",
+      "Feature block (text-left): Section gap 64px. H2 at 50px Gilroy weight 700, color #0b3558, centered above. Left column: feature list with Ink Navy icons (#006bff for active item, #a6bbd1 for inactive). Right column: 16px-radius white card with booking widget UI, backed by a #0099ff blob.",
+      "Pill badge: Background #e6f0ff, text #004eba at 12px Gilroy weight 500, border-radius 50px, padding 4px 8px.",
+      "Footer: Background #f8f9fb, padding 40px horizontal. Column headings at 12px Gilroy weight 600 uppercase, color #476788. Links at 14px Gilroy weight 500, color #0b3558.",
+      "Social sign-in button: Full-width, 12px 16px padding, 8px radius. Google variant: white bg, #0b3558 text, 1px #d4e0ed border. Microsoft variant: #0b3558 bg, white text, no border."
+    ]
+  },
+  "similar_brands": [
+    {
+      "name": "Linear",
+      "why": "Same Ink Navy text on near-white canvas, blue-tinted shadows, and single vivid blue primary action — both treat restraint as a feature"
+    },
+    {
+      "name": "Notion",
+      "why": "Similar white-card-on-cool-gray layout, generous 16–24px radii, and navy/blue text palette that avoids pure black"
+    },
+    {
+      "name": "Loom",
+      "why": "Same editorial heading sizes (50–80px bold), product-screenshot-in-front-of-colorful-blob hero treatment, and clean light-mode SaaS language"
+    },
+    {
+      "name": "Webflow",
+      "why": "Shares the white canvas + navy text + single electric blue accent, with decorative gradient shapes behind product visuals"
+    }
+  ],
+  "inconsistencies_in_source": [
+    "Example prompt 1 says the primary button uses a 9999px pill radius, but the components and Do's say buttons are 8px. The 8px value is the main rule.",
+    "Pill badge background #e6f0ff is not in the color table (Pebble is #f0f3f8)."
+  ]
+}

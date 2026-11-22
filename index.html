@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>心理學好書讀書會</title>
+<meta name="description" content="心理學好書讀書會｜Read the Mind。掌握現在，就能改寫過去。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Ccircle cx=%2732%27 cy=%2732%27 r=%2730%27 fill=%27%23C8321A%27/%3E%3Ctext x=%2732%27 y=%2743%27 font-size=%2732%27 text-anchor=%27middle%27 fill=%27%23EBE5DA%27 font-family=%27serif%27%3E%E5%BF%83%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Playfair+Display:ital@1&family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ===== Design tokens（顏色、字體取自簡報 v2；間距、圓角、版寬取自網站架構參考） ===== */
+:root{
+  --paper:#EBE5DA;      /* 米白紙色：頁面底 */
+  --paper-2:#F3EFE7;    /* 卡片面 */
+  --red:#C8321A;        /* 朱橘紅：主色、主要按鈕 */
+  --red-light:#E04A24;
+  --ink:#2A2622;        /* 暖墨黑：文字 */
+  --muted:#6F685F;      /* 次要文字 */
+  --line:#CFC6B8;       /* 細線 */
+  --sky:#A7C8E2;        /* 淡藍點綴 */
+  --font-en:'Bodoni Moda','Playfair Display',Georgia,serif;
+  --font-it:'Playfair Display','Bodoni Moda',Georgia,serif;
+  --font-zh:'Noto Serif TC','Source Han Serif TC','PMingLiU',serif;
+  --max:1200px;
+  --gutter:clamp(16px,4vw,40px);
+  --section:clamp(64px,9vw,112px);
+  --r-card:24px; --r-sm:16px; --r-btn:8px;
+  --shadow:0 4px 5px rgba(42,38,34,.04),0 8px 15px rgba(42,38,34,.03),0 30px 50px rgba(42,38,34,.07);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-zh);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+/* 文字元件 */
+.en{font-family:var(--font-en);font-weight:400;letter-spacing:-.01em;line-height:1}
+.it{font-family:var(--font-it);font-style:italic;font-weight:400}
+.label{font-size:12px;letter-spacing:.3em;color:var(--red)}
+.cap{font-family:var(--font-it);font-style:italic;font-size:13px;color:var(--muted)}
+.pill{display:inline-block;padding:4px 14px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.08em}
+.pill-sky{background:var(--sky);color:var(--ink)}
+.pill-line{border:1px solid var(--red);color:var(--red)}
+.pill-white{border:1px solid currentColor}
+
+/* 按鈕（8px 圓角） */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:var(--r-btn);font-family:var(--font-zh);font-weight:700;font-size:16px;text-decoration:none;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-light)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ghost{border:1px solid var(--ink);color:var(--ink)}
+
+/* ===== 1. Sticky 導覽列 ===== */
+.nav{position:sticky;top:0;z-index:50;background:rgba(235,229,218,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none;white-space:nowrap}
+.logo .en{font-size:22px;color:var(--red)}
+.logo .zh{font-weight:900;font-size:15px}
+.menu{display:flex;gap:28px;list-style:none}
+.menu a{text-decoration:none;font-size:15px;font-weight:500}
+.menu a:hover{color:var(--red)}
+.nav .btn{padding:8px 16px;font-size:14px}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer}
+.burger span{display:block;height:1.5px;background:var(--ink);margin:6px 8px}
+
+/* ===== 2. 兩欄 Hero ===== */
+.hero{padding:clamp(48px,7vw,96px) 0 0}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1 .en{display:block;white-space:nowrap;font-size:clamp(44px,6.4vw,84px);color:var(--red)}
+.hero h1 .zh{display:block;font-weight:900;font-size:clamp(34px,4.6vw,56px);line-height:1.15;margin-top:-.05em;padding-left:.12em}
+.hero .lead{font-size:clamp(18px,2vw,22px);margin:24px 0 8px}
+.hero .label{display:block;margin-bottom:32px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-art{position:relative;aspect-ratio:1/1;max-width:480px;width:100%;justify-self:end}
+.hero-art .bar{position:absolute;background:var(--red)}
+.hero-art .b1{left:0;bottom:0;width:100%;height:32%}
+.hero-art .b2{left:14%;bottom:31%;width:26%;height:14%}
+.hero-art .b3{left:52%;bottom:31%;width:26%;height:10%}
+.hero-art .b4{right:6%;bottom:0;width:4%;height:94%}
+.hero-art .sky-sq{position:absolute;left:41%;bottom:31%;width:9%;height:9%;background:var(--sky)}
+.hero-art .dot{position:absolute;left:24%;top:16%;width:12%;aspect-ratio:1;border-radius:50%;background:var(--sky)}
+.hero-art .oval{position:absolute;border:1px solid #9C968C;border-radius:50%}
+.hero-art .o1{left:28%;top:18%;width:58%;height:22%;transform:rotate(-6deg)}
+.hero-art .o2{left:36%;top:22%;width:46%;height:18%;border-style:dotted;transform:rotate(4deg)}
+.hero-art .orbit{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.hero-art .tag{position:absolute;left:0;bottom:8%;background:var(--paper);padding:6px 14px;font-size:13px}
+.vert{position:absolute;right:-4px;top:0;writing-mode:vertical-rl;font-family:var(--font-it);font-style:italic;font-size:11px;color:#9C968C;letter-spacing:.1em}
+
+/* 3. 數字帶（取代參考架構的信任列） */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:clamp(48px,6vw,80px)}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 40px;padding-top:20px;padding-bottom:20px}
+.strip .item{display:flex;align-items:baseline;gap:10px;font-size:15px}
+.strip .item .en{font-size:28px;color:var(--red)}
+
+/* ===== 置中區段標題 ===== */
+section{padding:var(--section) 0}
+.head{text-align:center;max-width:680px;margin:0 auto clamp(40px,5vw,64px)}
+.head .en{display:block;font-size:clamp(40px,5.6vw,68px);color:var(--ink)}
+.head .zh{display:block;font-weight:900;font-size:clamp(26px,3vw,36px);color:var(--red);line-height:1.2;margin-top:-.08em}
+.head p{color:var(--muted);margin-top:16px}
+
+/* ===== 左右交替雙欄 ===== */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.split.rev .split-text{order:2}
+.split-text h3{font-weight:900;font-size:clamp(24px,2.8vw,32px);line-height:1.35;margin-bottom:16px}
+.split-text p{color:var(--ink);margin-bottom:14px}
+.split-text .accent{color:var(--red);font-weight:700;font-size:20px;line-height:1.6;border-left:2px solid var(--red);padding-left:18px;margin-top:24px}
+
+/* 卡片 */
+.card{background:var(--paper-2);border-radius:var(--r-card);padding:32px;box-shadow:var(--shadow);position:relative}
+.card-red{background:var(--red);color:#fff}
+.card-sky{background:var(--sky)}
+.card-outline{background:transparent;box-shadow:none;border:1px solid var(--ink)}
+
+/* About：引言卡 */
+.quote-card{padding:40px}
+.quote-card .row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.quote-card h3{font-weight:900;font-size:clamp(24px,2.6vw,30px);line-height:1.35}
+.quote-card .hl{display:inline-block;margin-top:20px;background:var(--paper);color:var(--ink);padding:6px 14px;font-family:var(--font-it);font-style:italic}
+.deco-sky{position:absolute;width:72px;height:72px;border-radius:50%;background:var(--sky);right:-18px;bottom:-18px;z-index:-1}
+.stack{position:relative;z-index:0}
+
+/* 三部曲 */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.step .num{display:flex;align-items:center;gap:6px}
+.step .num .en{font-size:64px;color:var(--red)}
+.step .num i{width:36px;height:36px;border-radius:50%;background:var(--sky);margin-top:-28px;margin-left:-10px}
+.step h3{font-weight:900;font-size:24px;margin:6px 0 12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.step p{color:var(--muted);font-size:15px}
+
+/* 加入社群 */
+.join-num{font-size:clamp(96px,14vw,160px);color:var(--red)}
+.join-sub{font-weight:700;font-size:20px;margin:8px 0 4px}
+.qr-card{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;max-width:400px;justify-self:center;width:100%;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow)}
+.qr-card .qr{background:#fff;padding:20px;grid-row:1}
+.qr-card .scan{background:var(--red);color:#fff;padding:20px;font-family:var(--font-it);font-style:italic;font-size:22px;line-height:1.2}
+.qr-card .blk-red{background:var(--red);min-height:90px}
+.qr-card .blk-sky{background:var(--sky);display:flex;align-items:center;justify-content:center;font-weight:700;padding:16px;text-align:center}
+
+/* 守則 */
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.rule{display:flex;gap:20px;align-items:flex-start}
+.rule .en{font-size:48px;color:var(--red)}
+.rule h3{font-weight:700;font-size:19px;line-height:1.5}
+.warn{margin-top:32px;text-align:center}
+.warn span{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:12px 28px;border-radius:var(--r-btn)}
+
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:clamp(56px,7vw,88px);position:relative}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:42px;border-top:1px dashed #9C968C}
+.tl .en{font-size:24px;color:var(--red);display:block}
+.tl .dot{width:14px;height:14px;border-radius:50%;background:var(--sky);border:1px solid var(--ink);margin:12px 0 16px;position:relative}
+.tl h4{font-weight:900;font-size:18px;line-height:1.45;margin:10px 0 8px}
+.tl p{font-size:14px;color:var(--muted)}
+.sub-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:clamp(64px,8vw,96px)}
+.sub-head .en{font-size:clamp(30px,3.4vw,40px)}
+.sub-head .zh{font-weight:900;color:var(--red);font-size:22px}
+
+/* 兩個空間 */
+.space .it{font-size:26px;display:block}
+.space h3{font-weight:900;font-size:26px;margin:4px 0 16px;padding-bottom:16px;border-bottom:1px solid currentColor}
+.space ul{list-style:none}
+.space li{padding-left:18px;position:relative;margin-bottom:6px}
+.space li::before{content:"•";position:absolute;left:0}
+.space .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.card-red .it{color:#fff}
+.space:not(.card-red) .it{color:var(--muted)}
+
+/* 防詐騙（反白區段） */
+.alert{background:var(--red);color:#fff}
+.alert .head .en{color:var(--sky)}
+.alert .head .zh{color:#fff}
+.alert-list{display:grid;gap:14px}
+.alert-item{display:flex;gap:20px;align-items:center;background:var(--paper);color:var(--ink);padding:16px 24px;border-radius:var(--r-sm)}
+.alert-item .en{font-size:28px;color:var(--red)}
+.alert-item b{font-weight:900;font-size:18px}
+.alert .split-text p{color:#fff;font-size:18px;border-left:1px solid rgba(255,255,255,.6);padding-left:24px}
+
+/* 籌備中 */
+.soon .en{font-size:34px;display:block}
+.soon h3{font-weight:900;font-size:24px;margin:10px 0 8px}
+.soon p{font-size:15px;margin-bottom:24px;min-height:3.4em}
+.soon .card-red p{color:#fff}
+
+/* 結尾 CTA + 頁尾 */
+.cta{position:relative;overflow:hidden}
+.cta .en{font-size:clamp(56px,8vw,104px);color:var(--red);display:block}
+.cta h2 .zh{display:block;font-weight:900;font-size:clamp(30px,3.6vw,44px);margin-top:-.05em}
+.contact{margin-top:32px;display:grid;gap:20px;max-width:440px}
+.contact .cap{display:block}
+.contact a{font-size:19px;text-decoration:underline;text-underline-offset:4px}
+.contact .line-link{color:var(--red);font-weight:700}
+.cta-qr{background:#fff;padding:24px;border-radius:var(--r-card);box-shadow:var(--shadow);max-width:280px;width:100%;justify-self:center;text-align:center;font-weight:700;position:relative}
+.cta-qr::after{content:"";position:absolute;right:-16px;top:-16px;width:44px;height:44px;border-radius:50%;background:var(--sky)}
+.cta-blocks{display:flex;align-items:flex-end;justify-content:flex-end;height:80px;margin-top:48px}
+.cta-blocks i{background:var(--red);display:block}
+
+footer{border-top:1px solid var(--line);padding:40px 0}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
+.fcol h5{font-size:12px;letter-spacing:.2em;color:var(--muted);font-weight:500;margin-bottom:10px}
+.fcol a{display:block;text-decoration:none;font-size:14px;margin-bottom:6px}
+.fcol a:hover{color:var(--red)}
+.copy{width:100%;font-size:12px;letter-spacing:.3em;color:var(--muted);padding-top:24px;border-top:1px dashed var(--line)}
+
+/* ===== RWD ===== */
+@media (max-width:900px){
+  .menu{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px var(--gutter) 16px}
+  .menu.open{display:flex}
+  .menu a{display:block;padding:10px 0}
+  .burger{display:block}
+  .nav .btn{display:none}
+  .hero .wrap,.split{grid-template-columns:1fr}
+  .split.rev .split-text{order:0}
+  .hero-art{justify-self:center;max-width:380px}
+  .grid3,.timeline{grid-template-columns:1fr 1fr}
+  .timeline::before{display:none}
+}
+@media (max-width:600px){
+  .grid3,.timeline,.rules{grid-template-columns:1fr}
+  .card{padding:24px}
+  .quote-card{padding:28px}
+  .quote-card .row{flex-direction:column-reverse}
+  .strip .wrap{justify-content:flex-start}
+  .alert-item{padding:14px 18px;gap:14px}
+  .deco-sky{right:-6px}
+  .cta-qr::after{right:-6px}
+}
+</style>
+</head>
+<body>
+
+<!-- 1. 導覽列 -->
+<nav class="nav" aria-label="主選單">
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="en">Read the Mind</span><span class="zh">心理學好書讀書會</span></a>
+    <ul class="menu" id="menu">
+      <li><a href="#about">關於我們</a></li>
+      <li><a href="#steps">幸福三部曲</a></li>
+      <li><a href="#rules">社群守則</a></li>
+      <li><a href="#alert">防詐騙</a></li>
+      <li><a href="#soon">資源與活動</a></li>
+      <li><a href="#contact">聯絡</a></li>
+    </ul>
+    <a class="btn btn-red" href="#join">加入 LINE 社群</a>
+    <button class="burger" aria-label="開啟選單" aria-expanded="false" aria-controls="menu" onclick="var m=document.getElementById('menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- 2. Hero -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1><span class="en">Read the Mind</span><span class="zh">心理學好書讀書會</span></h1>
+      <p class="lead">掌握現在，就能改寫過去</p>
+      <span class="label">（ 社 群 介 紹 ）</span>
+      <div class="actions">
+        <a class="btn btn-red" href="#join">點我加入社群 →</a>
+        <a class="btn btn-ghost" href="#about">認識我們</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg class="orbit" viewBox="0 0 100 100" id="orbit">
+        <g transform="rotate(4 59 31)"><ellipse cx="59" cy="31" rx="23" ry="9" fill="none" stroke="#9C968C" stroke-width="1" stroke-dasharray="1 3" vector-effect="non-scaling-stroke"/></g>
+        <g transform="rotate(-6 57 29)">
+          <path id="orbitPath" d="M28 29 a29 11 0 1 0 58 0 a29 11 0 1 0 -58 0" fill="none" stroke="#2A2622" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <circle r="6" fill="#A7C8E2"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#orbitPath"/></animateMotion></circle>
+        </g>
+      </svg>
+      <i class="bar b2"></i><i class="sky-sq"></i><i class="bar b3"></i><i class="bar b1"></i><i class="bar b4"></i>
+      <span class="tag it">Psychology Book Club · Community Introduction</span>
+    </div>
+  </div>
+  <!-- 3. 數字帶 -->
+  <div class="strip">
+    <div class="wrap">
+      <div class="item"><span class="en">886</span>位成員一起讀心理學好書</div>
+      <div class="item"><span class="en">01</span>接納自己</div>
+      <div class="item"><span class="en">02</span>信任他人</div>
+      <div class="item"><span class="en">03</span>貢獻他人</div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- 4. 關於我們（文左、卡右） -->
+<section id="about">
+  <div class="wrap">
+    <div class="head"><span class="en">About Us</span><span class="zh">關於我們</span></div>
+    <div class="split">
+      <div class="split-text">
+        <p>這句話聽起來很弔詭，我們總以為是過去造就了現在，但阿德勒並不這麼看。</p>
+        <p>過去發生的種種確實無法改變，但要賦予這些經歷什麼意義，完全取決於現在的你。</p>
+        <p class="accent">當你不再被過去束縛，<br>就能掌握現在，改寫過去。</p>
+      </div>
+      <div class="stack">
+        <div class="card card-red quote-card">
+          <div class="row">
+            <h3>你的「現在」<br>決定了過去</h3>
+            <span class="pill pill-sky">（ 阿德勒 ）</span>
+          </div>
+          <span class="hl">Your present decides your past</span>
+        </div>
+        <i class="deco-sky" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 幸福三部曲（卡片） -->
+<section id="steps" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><span class="en">Three Steps to Happiness</span><span class="zh">幸福三部曲</span><p>當你不再被過去束縛，就能實踐這三個步驟</p></div>
+    <div class="grid3">
+      <article class="card step"><div class="num"><span class="en">01</span><i></i></div><span class="cap">Accept Yourself</span><h3>接納自己</h3><p>先學會接受現在的自己，不再被過去定義</p></article>
+      <article class="card step"><div class="num"><span class="en">02</span><i></i></div><span class="cap">Trust Others</span><h3>信任他人</h3><p>放下防備，與夥伴建立彼此信任的關係</p></article>
+      <article class="card step"><div class="num"><span class="en">03</span><i></i></div><span class="cap">Contribute</span><h3>貢獻他人</h3><p>在付出與分享之中，找到自己的價值</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 加入社群（卡左、文右） -->
+<section id="join" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><span class="en">Join Us</span><span class="zh">加入我們的 LINE 社群</span></div>
+    <div class="split rev">
+      <div class="split-text">
+        <span class="en join-num">886</span>
+        <p class="join-sub">位成員一起讀心理學好書</p>
+        <p class="cap" style="font-style:normal;font-family:var(--font-zh)">（成員數為 2026/11/18 截圖數字）</p>
+        <p style="margin-top:24px"><a class="btn btn-red" href="https://line.me/ti/g2/9jpyfJt_vp1XI-5PiolB3gLlPLCBIjOGmd5NUw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" rel="noopener">點我加入社群 →</a></p>
+      </div>
+      <div class="qr-card">
+        <div class="qr"><img src="data:image/png;base64,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" alt="LINE 社群 QR Code" width="636" height="636"></div>
+        <div class="scan">Scan<br>to join</div>
+        <div class="blk-red"></div>
+        <div class="blk-sky">掃碼<br>加入社群</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. 社群守則 -->
+<section id="rules" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><span class="en">Community Rules</span><span class="zh">社群守則：基本規範</span></div>
+    <div class="rules">
+      <div class="card rule"><span class="en">01</span><div><span class="cap">No Insults</span><h3>不可辱罵他人</h3></div></div>
+      <div class="card rule"><span class="en">02</span><div><span class="cap">No Threats</span><h3>不可恐嚇他人</h3></div></div>
+      <div class="card rule"><span class="en">03</span><div><span class="cap">Stay on Topic</span><h3>盡量以心理學相關書籍討論，不要離題太遠</h3></div></div>
+      <div class="card rule"><span class="en">04</span><div><span class="cap">Mind Your Words</span><h3>盡量減少不雅語助詞</h3></div></div>
+    </div>
+    <p class="warn"><span>違規者：警告一次無效後，請出群組</span></p>
+
+    <div class="sub-head"><span class="en">Rules Updated</span><span class="zh">社群守則：陸續新增規範</span></div>
+    <div class="timeline">
+      <div class="tl"><span class="en">2023.12.14</span><div class="dot"></div><span class="pill pill-line">守則 05</span><h4>廣告須先經版主同意</h4><p>非心理學相關廣告請勿刊登；心理學相關的請先問過版主</p></div>
+      <div class="tl"><span class="en">2024.03.18</span><div class="dot"></div><span class="pill pill-line">守則 06</span><h4>新增「夥伴閒話家常區」</h4><p>可分享非心理學資訊、互相聊天打氣；版方保留審核刪文權利</p></div>
+      <div class="tl"><span class="en">2024.03.19</span><div class="dot"></div><span class="pill pill-line">守則 07</span><h4>私下交換聯絡方式要小心</h4><p>最近詐騙猖獗，請自己留意</p></div>
+      <div class="tl"><span class="en">2024.12.07</span><div class="dot"></div><span class="pill pill-line">守則 08</span><h4>主群聚焦心理學書籍／影片</h4><p>不要離題太遠；尊重各派心理學說與宗教</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 兩個空間 -->
+<section id="spaces" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><span class="en">Two Spaces</span><span class="zh">兩個空間，各有用途</span></div>
+    <div class="split" style="align-items:stretch">
+      <div class="card space">
+        <span class="it">Main Group</span>
+        <h3>主群</h3>
+        <ul><li>以心理學相關書籍或影片討論為主</li><li>不要離題太遠</li><li>尊重各派心理學說，也尊重各個宗教</li></ul>
+      </div>
+      <div class="card card-red space">
+        <div class="row"><span class="it">Chat Corner</span><span class="pill pill-sky">（ 輕鬆交流 ）</span></div>
+        <h3>夥伴閒話家常區</h3>
+        <ul><li>可分享非心理學相關資訊</li><li>互相聊天、交流、打氣</li><li>例：歌唱老師推薦、個人付費課程分享</li><li>版方保留審核刪文的權利</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. 防詐騙（反白區段，清單左、說明右） -->
+<section id="alert" class="alert">
+  <div class="wrap">
+    <div class="head"><span class="en">Stay Alert</span><span class="zh">防詐騙提醒</span></div>
+    <div class="split">
+      <div class="alert-list">
+        <div class="alert-item"><span class="en">01</span><b>版主不會發「換群」的連結</b></div>
+        <div class="alert-item"><span class="en">02</span><b>版主不會介紹購物網站或其他社群</b></div>
+        <div class="alert-item"><span class="en">03</span><b>群友私下交換聯絡方式，請多一份警覺</b></div>
+      </div>
+      <div class="split-text"><p>現在的詐騙很常用這類方式，請大家多一份警覺性，避免後續遇到問題。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. 籌備中 -->
+<section id="soon">
+  <div class="wrap">
+    <div class="head"><span class="en it">Coming Soon</span><span class="zh">更多資源，籌備中</span><p>以下內容整理中，完成後會陸續公告</p></div>
+    <div class="grid3 soon">
+      <article class="card card-red"><span class="en">FAQ</span><h3>常見問題</h3><p>入群、讀書會進行方式等常見疑問</p><span class="pill pill-white">籌備中</span></article>
+      <article class="card card-sky"><span class="en">Resources</span><h3>心理資源</h3><p>推薦書單與心理相關資源整理</p><span class="pill pill-white">籌備中</span></article>
+      <article class="card card-outline"><span class="en">Events</span><h3>活動報名</h3><p>讀書會活動將透過 Accupass 開放報名</p><span class="pill pill-white">籌備中</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- 11. 結尾 CTA / 聯絡 -->
+<section id="contact" class="cta" style="padding-top:0">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <h2><span class="en">Thank You</span><span class="zh">歡迎加入我們</span></h2>
+        <p style="margin-top:16px">一起讀好書，接納自己、信任他人、貢獻他人</p>
+        <div class="contact">
+          <div><span class="cap">E-mail</span><a href="mailto:joe2002xye@gmail.com">joe2002xye@gmail.com</a></div>
+          <div><span class="cap">LINE Community</span><a class="line-link" href="https://line.me/ti/g2/9jpyfJt_vp1XI-5PiolB3gLlPLCBIjOGmd5NUw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" rel="noopener">心理學好書讀書會（點此加入）</a></div>
+        </div>
+      </div>
+      <div class="cta-qr">
+        <img src="data:image/png;base64,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" alt="LINE 社群 QR Code" width="636" height="636">
+        <p style="margin-top:12px">掃碼加入社群</p>
+      </div>
+    </div>
+    <div class="cta-blocks" aria-hidden="true"><i style="width:14%;height:60%"></i><i style="width:10%;height:100%"></i><i style="width:22%;height:40%"></i></div>
+  </div>
+</section>
+</main>
+
+<!-- 12. 頁尾 -->
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="en">Read the Mind</span><span class="zh">心理學好書讀書會</span></a>
+    <div class="fcol"><h5>社群</h5><a href="#about">關於我們</a><a href="#steps">幸福三部曲</a><a href="#join">加入 LINE 社群</a></div>
+    <div class="fcol"><h5>守則</h5><a href="#rules">社群守則</a><a href="#spaces">兩個空間</a><a href="#alert">防詐騙提醒</a></div>
+    <div class="fcol"><h5>聯絡</h5><a href="mailto:joe2002xye@gmail.com">joe2002xye@gmail.com</a><a href="#soon">資源與活動（籌備中）</a></div>
+    <p class="copy">（ 心 理 學 好 書 讀 書 會 ）</p>
+  </div>
+</footer>
+
+<script>
+try{if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){var o=document.getElementById('orbit');o.pauseAnimations();}}catch(e){}
+</script>
+</body>
+</html>
